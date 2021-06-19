@@ -1,7 +1,12 @@
 [package]
 name = "dodiplate"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2018"
+readme = "README.md"
+authors = ["Mohammed Ali Agha <mtxshiftg@gmail.com>"]
+license = "Unlicense"
+description = "A tool to clone boilerplate project files from any git repository"
+repository = "https://github.com/dodiameer/dodiplate"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
