@@ -3,7 +3,6 @@ use remove_dir_all::remove_dir_all as rimraff;
 use serde::{Deserialize, Serialize};
 use std::env;
 use std::error::Error;
-use std::fs;
 use std::io::{stdin, stdout, Write};
 use std::path::Path;
 
@@ -20,8 +19,8 @@ impl std::fmt::Display for Boilerplate {
 }
 
 fn get_boilerplates() -> Result<Vec<Boilerplate>, Box<dyn Error>> {
-    let file_path = Path::new(&env::current_dir()?).join("boilerplates.json");
-    let file = fs::read_to_string(file_path)?;
+    let boilerplate_bytes = include_bytes!("../boilerplates.json"); // Bundles the file into the binary
+    let file = String::from_utf8_lossy(boilerplate_bytes);
     let boilerplates: Vec<Boilerplate> = serde_json::from_str(&file)?;
     Ok(boilerplates)
 }
