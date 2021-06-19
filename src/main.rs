@@ -14,7 +14,7 @@ struct Boilerplate {
 
 impl std::fmt::Display for Boilerplate {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::result::Result<(), std::fmt::Error> {
-        write!(f, "boilerplate `{}` at repo `{}`", self.name, self.repo)
+        write!(f, "`{}` at repo `{}`", self.name, self.repo)
     }
 }
 
@@ -68,6 +68,11 @@ fn input(msg: &str) -> Result<String, Box<dyn Error>> {
 
 fn main() -> Result<(), Box<dyn Error>> {
     let boilerplates = get_boilerplates()?;
+    println!("---- List of boilerplates ----");
+    for boilerplate in &boilerplates {
+        println!("{}", boilerplate);
+    }
+    println!("------------------------------");
     let name = input("Boilerplate name")?;
     let boilerplate = find_boilerplate(boilerplates, &name.to_lowercase())?;
     let output_directory = input("Output directory")?;
