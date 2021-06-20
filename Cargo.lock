@@ -81,7 +81,7 @@ dependencies = [
 
 [[package]]
 name = "dodiplate"
-version = "1.1.0"
+version = "1.1.1"
 dependencies = [
  "anyhow",
  "git2",
