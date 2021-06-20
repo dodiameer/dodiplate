@@ -1,9 +1,10 @@
 mod boilerplate;
 mod utils;
 use std::error::Error;
+use anyhow::{Context, Result};
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let boilerplates = boilerplate::get_boilerplates()?;
+    let boilerplates = boilerplate::get_boilerplates().with_context(|| "Unable to read configuration")?;
     println!("---- List of boilerplates ----");
     for boilerplate in &boilerplates {
         println!("{}", boilerplate);
