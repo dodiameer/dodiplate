@@ -15,3 +15,4 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 git2 = "0.13.20"
 remove_dir_all = "0.7.0"
+home = "0.5.3"
