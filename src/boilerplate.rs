@@ -4,7 +4,6 @@ use serde::{Deserialize, Serialize};
 use std::env;
 use std::error::Error;
 use std::fs;
-use std::io::{stdin, stdout, Write};
 use std::path::Path;
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -14,7 +13,7 @@ pub struct Boilerplate {
 }
 
 impl std::fmt::Display for Boilerplate {
-   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::result::Result<(), std::fmt::Error> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::result::Result<(), std::fmt::Error> {
         write!(f, "`{}` at repo `{}`", self.name, self.repo)
     }
 }
